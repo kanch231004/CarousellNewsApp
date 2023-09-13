@@ -19,6 +19,7 @@ class HomePageViewModel @Inject constructor(private val homePageRepository: Home
     /** Made this as private and the val newsFlow as public so this can't be modified from outside */
 
     init {
+        uiStateLiveData.postValue(UIState.Loading)
         viewModelScope.launch {
             when(val result = homePageRepository.getNews()) {
                 is Result.Success -> uiStateLiveData.postValue(UIState.Success(result.body))
@@ -30,6 +31,6 @@ class HomePageViewModel @Inject constructor(private val homePageRepository: Home
 
 sealed class UIState {
     data class Success(val newsList: List<NewsItem>): UIState()
-    data class Error(val errorMessage: String?): UIState()
+    data class Error(val errorMessage: String? = ""): UIState()
     object Loading: UIState()
 }

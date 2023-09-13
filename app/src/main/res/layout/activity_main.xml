@@ -16,17 +16,40 @@
         android:id="@+id/toolBar"
         />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvNews"
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:orientation="vertical"
         android:layout_marginTop="56dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolBar"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ViewStub
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        tools:visibility="visible"
+        android:layout="@layout/layout_error_page"
+        android:id="@+id/viewStubError"/>
+
+    <ViewStub
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        tools:visibility="visible"
+        android:layout="@layout/layout_loader"
+        android:id="@+id/viewStubPb"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvNews"
         android:layout_marginStart="@dimen/margin_8dp"
         android:layout_marginEnd="@dimen/margin_8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/rv_news_items"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
