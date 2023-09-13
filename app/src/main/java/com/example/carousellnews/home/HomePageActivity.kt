@@ -21,7 +21,7 @@ class HomePageActivity : ComponentActivity() {
     }
 
     private fun subscribeUI() {
-        homePageViewModel.uiStateLd.observe(this) {uiState ->
+        homePageViewModel.uiStateLd.observe(this) { uiState ->
             when(uiState) {
                 is UIState.Success ->  {
                     hpNewsAdapter.submitList(uiState.newsList)

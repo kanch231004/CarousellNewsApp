@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.carousellapp.databinding.RvNewsItemsBinding
 import com.example.carousellnews.data.NewsItem
+import com.example.carousellnews.util.TimeFormatter
 
 class HPNewsAdapter: ListAdapter<NewsItem,HPNewsAdapter.HPNewsViewHolder>(NewsItemDiffCallback) {
     class HPNewsViewHolder(private val rvListBinding: RvNewsItemsBinding): RecyclerView.ViewHolder(rvListBinding.root) {
@@ -17,7 +18,7 @@ class HPNewsAdapter: ListAdapter<NewsItem,HPNewsAdapter.HPNewsViewHolder>(NewsIt
                 Glide.with(rvListBinding.root).load(newsItem.bannerUrl).into(ivNews)
                 tvTitle.text = newsItem.title
                 tvDescription.text = newsItem.description
-                tvTimeStamp.text = newsItem.timeCreated.toString()
+                tvTimeStamp.text = TimeFormatter.convertTimestampToAgo(newsItem.timeCreated)
             }
         }
     }

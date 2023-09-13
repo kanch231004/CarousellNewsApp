@@ -6,11 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.carousellnews.api.Result
 import com.example.carousellnews.data.NewsItem
-import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-
 
 @HiltViewModel
 class HomePageViewModel @Inject constructor(private val homePageRepository: HomePageRepository): ViewModel() {
@@ -19,7 +17,6 @@ class HomePageViewModel @Inject constructor(private val homePageRepository: Home
         get() = uiStateLiveData
 
     /** Made this as private and the val newsFlow as public so this can't be modified from outside */
-
 
     init {
         viewModelScope.launch {
