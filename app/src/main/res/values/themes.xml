@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="Theme.CarousellNews" parent="Theme.MaterialComponents.DayNight.DarkActionBar" />
+    <style name="Theme.CarousellNews" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge" />
+    <color name="colorPrimary">#C13733</color>
+    <color name="colorPrimaryDark">#9A2B28</color>
 </resources>

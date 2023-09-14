@@ -7,7 +7,6 @@ import com.example.carousellnews.data.NewsItem
 import javax.inject.Inject
 
 class HomePageRepository @Inject constructor(private val apiService: CarousellNewsService): HomePageRepoProvider {
-
     override suspend fun getNews(): Result<List<NewsItem>> {
         /** Response classification of success and error can be done at generic place */
          val result = apiService.getNews()
@@ -22,8 +21,7 @@ class HomePageRepository @Inject constructor(private val apiService: CarousellNe
 }
 
 
+/** Interface approach is required for unit testing */
 interface HomePageRepoProvider {
-    /** Paging data is used to implement pagination as this is
-     * newsAPI which would could be infinite list*/
     suspend fun getNews(): Result<List<NewsItem>>
 }
